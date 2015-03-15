@@ -75,7 +75,7 @@ bool HelloWorld::init()
     
     return true;
 }
-
+// test xcode local commit #002
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
