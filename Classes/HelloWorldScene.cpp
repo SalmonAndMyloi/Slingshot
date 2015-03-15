@@ -20,6 +20,7 @@ Scene* HelloWorld::createScene()
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
+    // test xcode local commit
     //////////////////////////////
     // 1. super init first
     if ( !Layer::init() )
