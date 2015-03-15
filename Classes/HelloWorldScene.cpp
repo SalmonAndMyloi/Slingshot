@@ -76,7 +76,7 @@ bool HelloWorld::init()
     return true;
 }
 // test xcode local commit #002
-
+// test xcode local commit #003
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8) || (CC_TARGET_PLATFORM == CC_PLATFORM_WINRT)
