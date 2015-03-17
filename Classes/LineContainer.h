@@ -9,9 +9,6 @@
 #ifndef __Slingshot__LineContainer__
 #define __Slingshot__LineContainer__
 
-
-#include "cocos2d.h"
-
 enum{
     LINE_NONE,
     LINE_DRAW
@@ -28,7 +25,6 @@ public:
     CREATE_FUNC(LineContainer);
     virtual void draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags);
     void onDraw(const cocos2d::Mat4 &transform, uint32_t flags);
-    
 };
 
 #endif /* defined(__Slingshot__LineContainer__) */

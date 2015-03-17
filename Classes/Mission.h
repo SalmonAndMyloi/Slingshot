@@ -9,20 +9,40 @@
 #ifndef __Slingshot__Mission__
 #define __Slingshot__Mission__
 
-#include "cocos2d.h"
+#include "GameSprite.h"
 #include "Ball.h"
 #include "Target.h"
 #include "LineContainer.h"
 
-class Mission : cocos2d::Sprite {
+class MissionGenerator;
+
+typedef std::vector<GameSprite*> GameSpriteArray;
+typedef std::vector<Target*> TargetArray;
+//typedef std::vector<GameSpriteArray*> GameSpriteArrayArray;
+
+class Mission : public cocos2d::Sprite {
 protected:
-public:
+    Ball * itsBall;
+    int itsTime;
+    int itsScore;
+    float itsGravityFactor;
+    float itsAirResistanceFactor;
+    cocos2d::Vec2 itsBallStartPosition;
+    GameSpriteArray itsMovingSpriteArray;
+    TargetArray itsTargetArray;
+protected:
     Mission();
     ~Mission();
+    void initMission();
+    bool CheckPositionForOutOfBound(cocos2d::Vec2);
+public:
     static Mission * createMission();
-    int ProcessOneStep();
-    float GetCurTime();
+    int GetCurTime();
     int GetCurScore();
+    Ball * GetBall();
+    bool SetBallMovevector(cocos2d::Vec2);
+    int UpdateAllObjectPosition();
+    friend MissionGenerator;
 };
 
 #endif /* defined(__Slingshot__Mission__) */

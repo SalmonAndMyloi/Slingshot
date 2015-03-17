@@ -9,7 +9,6 @@
 #include "Target.h"
 
 Target::Target() {
-    
 }
 Target::Target(int _type) {
     type = _type;

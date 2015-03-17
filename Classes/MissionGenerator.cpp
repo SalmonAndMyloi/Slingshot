@@ -7,3 +7,11 @@
 //
 
 #include "MissionGenerator.h"
+#include "MissionTest.h"
+
+MissionGenerator * MissionGenerator::singleGenerator = 0;
+
+Mission * MissionGenerator::Generator() {
+    auto * _mission = MissionTest::createMissionTest();
+    return _mission;
+}

@@ -8,9 +8,7 @@
 
 #include "LineContainer.h"
 
-USING_NS_CC;
-
-void LineContainer::draw(Renderer *renderer, const Mat4 &transform, uint32_t flags)
+void LineContainer::draw(cocos2d::Renderer *renderer, const cocos2d::Mat4 &transform, uint32_t flags)
 {
     switch (line_type)
     {
@@ -24,10 +22,10 @@ void LineContainer::draw(Renderer *renderer, const Mat4 &transform, uint32_t fla
             break;
     }
 }
-void LineContainer::onDraw(const Mat4 &transform, uint32_t flags)
+void LineContainer::onDraw(const cocos2d::Mat4 &transform, uint32_t flags)
 {
-    DrawPrimitives::setDrawColor4B(255, 0, 0, 255);
+    cocos2d::DrawPrimitives::setDrawColor4B(255, 0, 0, 255);
     glLineWidth(4.0f);
-    DrawPrimitives::drawLine(tap,pivot);
+    cocos2d::DrawPrimitives::drawLine(tap,pivot);
     CHECK_GL_ERROR_DEBUG();
 }

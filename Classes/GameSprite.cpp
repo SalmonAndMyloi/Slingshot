@@ -8,8 +8,11 @@
 
 #include "GameSprite.h"
 
-void GameSprite::Move()
-{
+GameSprite::GameSprite() {
+}
+GameSprite::~GameSprite() {
+}
+void GameSprite::Move() {
     cocos2d::Vec2 nextPosition = getPosition() + getMoveVector();
     this->setPosition(nextPosition);
 }
