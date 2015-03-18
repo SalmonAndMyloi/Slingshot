@@ -32,17 +32,10 @@ bool HelloWorld::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-    //auto gameUi = UILayer::createUILayer();
-    //this->addChild(gameUi);
-    //gameUi->Start();
-    //curMission = MissionTest::createMissionTest();
-    //curMission->setPosition(cocos2d::Vec2(visibleSize.width/2,visibleSize.height/2));
-    //addChild(curMission);
-    
     auto ui = UILayer::createUILayer();
     ui->Load();
     ui->setPosition(cocos2d::Vec2(visibleSize.width/2,visibleSize.height/2));
-    //ui->Start();
+    ui->Start();
     addChild(ui);
     
     //터치 활성화

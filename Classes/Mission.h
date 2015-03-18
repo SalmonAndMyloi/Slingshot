@@ -16,21 +16,20 @@
 
 class MissionGenerator;
 
-typedef std::vector<GameSprite*> GameSpriteArray;
-typedef std::vector<Target*> TargetArray;
-//typedef std::vector<GameSpriteArray*> GameSpriteArrayArray;
-
 class Mission : public cocos2d::Sprite {
 protected:
+    typedef std::vector<GameSprite*> GameSpriteArray;
+    typedef std::vector<Target*> TargetArray;
+    typedef int Status;
+protected:
+    CC_SYNTHESIZE_READONLY(int, itsTime, curTime);
+    CC_SYNTHESIZE_READONLY(int, itsScore, curScore);
     Ball * itsBall;
-    int itsTime;
-    int itsScore;
     float itsGravityFactor;
     float itsAirResistanceFactor;
     cocos2d::Vec2 itsBallStartPosition;
     GameSpriteArray itsMovingSpriteArray;
     TargetArray itsTargetArray;
-protected:
     Mission();
     ~Mission();
     void initMission();

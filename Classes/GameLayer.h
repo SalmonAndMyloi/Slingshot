@@ -23,7 +23,7 @@ protected:
     };
     enum {
         BACK_GROUND,
-        GAME_SPRITE
+        FORE_GROUND
     };
 public:
     GameLayer();

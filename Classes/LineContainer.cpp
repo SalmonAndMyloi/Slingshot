@@ -26,6 +26,6 @@ void LineContainer::onDraw(const cocos2d::Mat4 &transform, uint32_t flags)
 {
     cocos2d::DrawPrimitives::setDrawColor4B(255, 0, 0, 255);
     glLineWidth(4.0f);
-    cocos2d::DrawPrimitives::drawLine(tap,pivot);
+    cocos2d::DrawPrimitives::drawLine(_srcTap,_dstTap);
     CHECK_GL_ERROR_DEBUG();
 }

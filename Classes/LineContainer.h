@@ -17,9 +17,9 @@ enum{
 class LineContainer : public cocos2d::Node
 {
 protected:
+    CC_SYNTHESIZE(cocos2d::Vec2, _srcTap, SrcTap);
+    CC_SYNTHESIZE(cocos2d::Vec2, _dstTap, DstTap);
     CC_SYNTHESIZE(int, line_type, LineType);
-    CC_SYNTHESIZE(cocos2d::Vec2, tap, Tap);
-    CC_SYNTHESIZE(cocos2d::Vec2, pivot, Pivot);
     cocos2d::CustomCommand cmd;
 public:
     CREATE_FUNC(LineContainer);

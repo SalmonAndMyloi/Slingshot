@@ -32,6 +32,8 @@ int Mission::UpdateAllObjectPosition() {
     int size = (int) itsMovingSpriteArray.size();
     for(int i=0; i<size; ++i) {
         GameSprite * moveObject = itsMovingSpriteArray[i];
+        if(moveObject->getIsMoving() == false)
+            continue;
         moveObject->Move();
         if( CheckPositionForOutOfBound(moveObject->getPosition())) {
             moveObject->setPosition(cocos2d::Vec2(itsBallStartPosition));
@@ -45,12 +47,6 @@ bool Mission::CheckPositionForOutOfBound(cocos2d::Vec2 _pos) {
     if(_pos.x<0 || _pos.y<0 || _pos.x > size.width || _pos.y > size.height)
         return true;
     return false;
-}
-int Mission::GetCurTime() {
-    return itsTime;
-}
-int Mission::GetCurScore() {
-    return itsScore;
 }
 Ball * Mission::GetBall() {
     return itsBall;

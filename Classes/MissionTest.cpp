@@ -10,7 +10,7 @@
 
 MissionTest::MissionTest() {
     //temp values
-    cocos2d::Vec2 moveVecForTesting(0,0);
+    cocos2d::Vec2 moveVecForTesting(1,1);
     //init local values
     itsTime = 0;
     itsScore = 0;
@@ -22,7 +22,7 @@ MissionTest::MissionTest() {
     itsBall = Ball::createBall();
     itsMovingSpriteArray.push_back(itsBall);
     itsBall->setPosition(itsBallStartPosition);
-    itsBall->setIsMoving(false);
+    itsBall->setIsMoving(true);
     itsBall->setMoveVector(moveVecForTesting);
     addChild(itsBall);
     itsBall->retain();
@@ -31,7 +31,7 @@ MissionTest::MissionTest() {
     for(int i=0; i<5; i++) {
         Target * _tempTarget = Target::createWithTypeNumber(0);
         _tempTarget->setPosition(cocos2d::Vec2(100 + i*100, 100 + i*100));
-        _tempTarget->setIsMoving(false);
+        _tempTarget->setIsMoving(true);
         _tempTarget->setMoveVector(moveVecForTesting);
         addChild(_tempTarget);
         _tempTarget->retain();
