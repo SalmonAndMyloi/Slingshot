@@ -29,9 +29,9 @@ protected:
     CC_SYNTHESIZE_READONLY(int, itsTime, curTime);
     CC_SYNTHESIZE_READONLY(int, itsScore, curScore);
     CC_SYNTHESIZE_READONLY(Mission::STATUS, itsStatus, curStatus);
+    CC_SYNTHESIZE_READONLY(float, itsGravityFactor, GravityFactor);
+    CC_SYNTHESIZE_READONLY(float, itsAirResistanceFactor, AirResistanceFactor);
     Ball * itsBall;
-    float itsGravityFactor;
-    float itsAirResistanceFactor;
     cocos2d::Vec2 itsBallStartPosition;
     GameSpriteArray itsMovingSpriteArray;
     TargetArray itsTargetArray;
@@ -43,9 +43,9 @@ public:
     static Mission * createMission();
     int GetCurTime();
     int GetCurScore();
-    Ball * GetBall();
     STATUS GetStatus();
     bool SetBallMovevector(cocos2d::Vec2);
+    bool LaunchBall();
     int UpdateAllObjectPosition();
     friend MissionGenerator;
 };

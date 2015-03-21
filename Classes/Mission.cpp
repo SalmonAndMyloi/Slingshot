@@ -39,6 +39,9 @@ int Mission::UpdateAllObjectPosition() {
         if( CheckPositionForOutOfBound(moveObject->getPosition())) {
             moveObject->setPosition(cocos2d::Vec2(itsBallStartPosition));
             moveObject->setIsMoving(false);
+            if(moveObject == itsBall) {
+                itsStatus = STATUS::RUNNING_BALL_STOP;
+            }
         }
     }
     return 0;
@@ -49,13 +52,21 @@ bool Mission::CheckPositionForOutOfBound(cocos2d::Vec2 _pos) {
         return true;
     return false;
 }
-Ball * Mission::GetBall() {
-    return itsBall;
+Mission::STATUS Mission::GetStatus() {
+    return itsStatus;
 }
 bool Mission::SetBallMovevector(cocos2d::Vec2 moveVec) {
-    if(itsBall->getIsMoving()) //if the ball is moving cancel it
-        return false;
-    itsBall->setMoveVector(moveVec);
-    itsBall->setIsMoving(true);
-    return true;
+    if(itsStatus == STATUS::RUNNING_BALL_STOP) {
+        itsBall->setMoveVector(moveVec);
+        return true;
+    }
+    return false;
+}
+bool Mission::LaunchBall() {
+    if(itsStatus == STATUS::RUNNING_BALL_STOP) {
+        itsBall->setIsMoving(true);
+        itsStatus = STATUS::RUNNING_BALL_MOVE;
+        return true;
+    }
+    return false;
 }

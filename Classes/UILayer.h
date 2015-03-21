@@ -10,11 +10,11 @@
 #define __Slingshot__UILayer__
 
 #include "GameLayer.h"
-#include "LineContainer.h"
 
 class UILayer : public GameLayer {
 protected:
-    LineContainer * itsLine;
+    cocos2d::Vec2 tapSrc;
+    cocos2d::Vec2 tapDst;
 public:
     UILayer();
     ~UILayer();
