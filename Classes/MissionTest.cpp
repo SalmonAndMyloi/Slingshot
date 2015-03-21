@@ -9,6 +9,7 @@
 #include "MissionTest.h"
 
 MissionTest::MissionTest() {
+    this->initMission();
     //temp values
     cocos2d::Vec2 moveVecForTesting(1,1);
     //init local values

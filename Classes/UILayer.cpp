@@ -9,11 +9,7 @@
 #include "UILayer.h"
 
 UILayer::UILayer() {
-    itsLine = LineContainer::create();
-    itsLine->setLineType(LINE_DRAW);
-    itsLine->setVisible(false);
-    addChild(itsLine,FORE_GROUND);
-    itsLine->retain();
+    
 }
 UILayer::~UILayer() {
     
@@ -27,25 +23,27 @@ void UILayer::update(float dt) {
 }
 bool UILayer::onTouchBegan(cocos2d::Touch *pTouches,cocos2d::Event *unused_event) {
     if (pTouches) {
-        itsLine->setSrcTap(pTouches->getLocation());
-        itsLine->setDstTap(pTouches->getLocation());
-        itsLine->setVisible(true);
+        if(curMission->GetStatus() == Mission::STATUS::RUNNING_BALL_STOP) {
+            tapSrc = pTouches->getLocation();
+        }
     }
     return true;
 }
 void UILayer::onTouchMoved(cocos2d::Touch *pTouches,cocos2d::Event *unused_event) {
     if(pTouches) {
-        itsLine->setDstTap(pTouches->getLocation());
+        if(curMission->GetStatus() == Mission::STATUS::RUNNING_BALL_STOP) {
+            tapDst = pTouches->getLocation();
+            curMission->SetBallMovevector(tapSrc - tapDst);
+        }
     }
 }
 void UILayer::onTouchEnded(cocos2d::Touch *pTouches,cocos2d::Event *unused_event) {
     if (pTouches)
     {
-        cocos2d::Vec2 src = itsLine->getSrcTap();
-        cocos2d::Vec2 dst = itsLine->getDstTap();
-        cocos2d::Vec2 moveVec = src - dst;
-        curMission->SetBallMovevector(moveVec);
-        itsLine->setVisible(false);    }
+        if(curMission->GetStatus() == Mission::STATUS::RUNNING_BALL_STOP) {
+            curMission->LaunchBall();
+        }
+    }
 }
 void UILayer::onTouchCancelled(cocos2d::Touch *pTouches,cocos2d::Event *unused_event) {
 }
