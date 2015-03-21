@@ -14,13 +14,6 @@
 class GameLayer : public cocos2d::Layer {
 protected:
     Mission * curMission;
-    int gameStatus;
-    enum {
-        STATUS_INIT,
-        STATUS_LOADED,
-        STATUS_RUNNING,
-        STATUS_STOPED
-    };
     enum {
         BACK_GROUND,
         FORE_GROUND

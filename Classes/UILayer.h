@@ -19,7 +19,6 @@ public:
     UILayer();
     ~UILayer();
     static UILayer * createUILayer();
-    
     virtual void update(float);
     virtual bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
     virtual void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);

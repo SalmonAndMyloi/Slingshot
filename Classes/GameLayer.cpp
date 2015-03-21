@@ -11,7 +11,6 @@
 
 GameLayer::GameLayer() {
     curMission = NULL;
-    gameStatus = STATUS_INIT;
 }
 GameLayer::~GameLayer() {
     
@@ -25,24 +24,15 @@ bool GameLayer::Load() {
         return false;
     curMission = MissionGenerator::getInstance()->Generator();
     addChild(curMission,BACK_GROUND);
-    gameStatus = STATUS_LOADED;
     return true;
 }
 bool GameLayer::Start() {
-    if(STATUS_LOADED || STATUS_STOPED) {
-        this->scheduleUpdate();
-        gameStatus = STATUS_RUNNING;
-        return true;
-    }
-    return false;
+    this->scheduleUpdate();
+    return true;
 }
 bool GameLayer::Stop() {
-    if(STATUS_LOADED || STATUS_RUNNING) {
-        this->unscheduleUpdate();
-        gameStatus = STATUS_STOPED;
-        return true;
-    }
-    return false;
+    this->unscheduleUpdate();
+    return true;
 }
 int GameLayer::UpdateOneStep() {
     curMission->UpdateAllObjectPosition();

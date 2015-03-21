@@ -22,6 +22,7 @@ void Mission::initMission() {
     addChild(itsBall);
     itsBall->setPosition(itsBallStartPosition);
     itsBall->setIsMoving(false);
+    itsStatus = RUNNING_BALL_STOP;
 }
 Mission * Mission::createMission() {
     Mission * _mission = new Mission();

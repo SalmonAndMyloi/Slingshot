@@ -17,13 +17,18 @@
 class MissionGenerator;
 
 class Mission : public cocos2d::Sprite {
+public:
+    enum STATUS {
+        RUNNING_BALL_STOP,
+        RUNNING_BALL_MOVE,
+        MISSION_CLEAR
+    };
 protected:
     typedef std::vector<GameSprite*> GameSpriteArray;
     typedef std::vector<Target*> TargetArray;
-    typedef int Status;
-protected:
     CC_SYNTHESIZE_READONLY(int, itsTime, curTime);
     CC_SYNTHESIZE_READONLY(int, itsScore, curScore);
+    CC_SYNTHESIZE_READONLY(Mission::STATUS, itsStatus, curStatus);
     Ball * itsBall;
     float itsGravityFactor;
     float itsAirResistanceFactor;
@@ -39,6 +44,7 @@ public:
     int GetCurTime();
     int GetCurScore();
     Ball * GetBall();
+    STATUS GetStatus();
     bool SetBallMovevector(cocos2d::Vec2);
     int UpdateAllObjectPosition();
     friend MissionGenerator;

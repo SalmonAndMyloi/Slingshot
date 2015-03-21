@@ -23,11 +23,9 @@ UILayer * UILayer::createUILayer() {
     return _uiLayer;
 }
 void UILayer::update(float dt) {
-    cocos2d::log("UI_Update");
     UpdateOneStep();
 }
 bool UILayer::onTouchBegan(cocos2d::Touch *pTouches,cocos2d::Event *unused_event) {
-    cocos2d::log("Hello");
     if (pTouches) {
         itsLine->setSrcTap(pTouches->getLocation());
         itsLine->setDstTap(pTouches->getLocation());
