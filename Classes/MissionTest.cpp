@@ -23,8 +23,8 @@ MissionTest::MissionTest() {
     itsBall = Ball::createBall();
     itsMovingSpriteArray.push_back(itsBall);
     itsBall->setPosition(itsBallStartPosition);
-    itsBall->setIsMoving(true);
-    itsBall->setMoveVector(moveVecForTesting);
+    itsBall->setIsMoving(false);
+    itsBall->setMoveVector(cocos2d::Vec2::ZERO);
     addChild(itsBall);
     itsBall->retain();
     
